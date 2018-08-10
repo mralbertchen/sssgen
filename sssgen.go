@@ -51,14 +51,14 @@ func createSecrets() {
 	src := x.Bytes()
 	encodedStr := hex.EncodeToString(src)
 
-	fmt.Println("Secret: ", encodedStr)
+	// fmt.Println("Secret: ", encodedStr)
 
 	secrets, err := sssa.Create(threshold, shares, encodedStr)
 	if err != nil {
 		panic(err)
 	}
 	for i := range secrets {
-		fmt.Printf("Secret %v: ", i)
+		fmt.Printf("Secret %v: ", i+1)
 		fmt.Print(secrets[i], "\n")
 	}
 
